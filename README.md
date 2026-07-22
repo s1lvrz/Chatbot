@@ -2,6 +2,8 @@
 
 A modern, responsive, and dual-language (English/Arabic) web-based voice chatbot interface powered by Web Speech APIs and a backend assistant integration. Designed with a sleek sidebar, dynamic calendar widget, chat history search, and smooth conversational UI.
 
+<img width="1353" height="700" alt="image" src="https://github.com/s1lvrz/Chatbot/blob/main/How-an-AI-chatbot-works_2024-10-01-180316_pngv.png" />
+
 ## Features
 
 * **Voice & Text Integration:** Tap the microphone button to speak naturally.
@@ -11,9 +13,6 @@ A modern, responsive, and dual-language (English/Arabic) web-based voice chatbot
   * "New Chat" button to instantly clear history and restart a session.
   * Search bar to filter previous conversation history.
 * **Light and Dark modes**
-
-### Demo
-![demo](demo.mp4)
 
 ## Run project
 1. Download and place the project files into your local directory.
