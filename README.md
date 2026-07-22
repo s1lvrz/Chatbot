@@ -1,10 +1,12 @@
 # Bilingual Voice Chatbot Assistant
 
+<img width="1353" height="700" alt="image" src="https://github.com/s1lvrz/Chatbot/blob/main/page.png" />
+
 A modern, responsive, and dual-language (English/Arabic) web-based voice chatbot interface powered by Web Speech APIs and a backend assistant integration. Designed with a sleek sidebar, dynamic calendar widget, chat history search, and smooth conversational UI.
 
-<img width="1353" height="700" alt="image" src="https://github.com/s1lvrz/Chatbot/blob/main/How-an-AI-chatbot-works_2024-10-01-180316_pngv.png" />
-
 ## Features
+
+<img width="1353" height="700" alt="image" src="https://github.com/s1lvrz/Chatbot/blob/main/How-an-AI-chatbot-works_2024-10-01-180316_pngv.png" />
 
 * **Voice & Text Integration:** Tap the microphone button to speak naturally.
 * **Dual-Language Support:** Seamlessly switch between English and Arabic UI layouts with native translation handling.
