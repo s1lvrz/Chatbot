@@ -14,6 +14,9 @@ A modern, responsive, and dual-language (English/Arabic) web-based voice chatbot
   * Search bar to filter previous conversation history.
 * **Light and Dark modes**
 
+## Demo Video
+[Watch the Chatbot Demo Video](https://github.com/s1lvrz/Chatbot/raw/main/demo.mp4)
+
 ## Run project
 1. Download and place the project files into your local directory.
 2. Run the following command in your terminal from your project root directory:
