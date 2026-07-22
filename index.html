@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html id="htmlTag" lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">Voice Chatbot</title>
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- style -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- sidenav (mobile) -->
+    <aside id="side-nav" class="side-nav">
+      <!-- theme toggler, lang switch & close -->
+      <div class="header">
+        <div class="theme-toggler-container">
+          <span
+            class="iconify sun-solid"
+            data-inline="false"
+            data-icon="clarity:sun-solid"
+            style="color: #3c3563; font-size: 22px"
+          ></span>
+          <span class="sun-outline">
+            <span
+              class="iconify"
+              data-inline="false"
+              data-icon="octicon:sun-24"
+              style="color: #ffffff; font-size: 22px"
+            ></span>
+          </span>
+          <span class="moon-outline">
+            <span
+              class="iconify"
+              data-inline="false"
+              data-icon="eva:moon-outline"
+              style="color: #3c3563; font-size: 22px"
+            ></span>
+          </span>
+          <span
+            class="iconify moon-solid"
+            data-inline="false"
+            data-icon="eva:moon-fill"
+            style="color: #ffffff; font-size: 22px"
+          ></span>
+        </div>
+
+        <button id="langToggleNav" class="lang-btn">
+          <span class="iconify" data-icon="mdi:earth" style="font-size: 16px; vertical-align: text-bottom; margin-right: 4px;"></span>
+          <span id="langToggleNavText">عربي</span>
+        </button>
+
+        <span id="close-menu" class="close-menu">
+          <span
+            class="iconify"
+            data-inline="false"
+            data-icon="eva:close-outline"
+            style="font-size: 27px"
+          ></span>
+        </span>
+      </div>
+
+      <!-- user info -->
+      <div class="user">
+        <img src="./user-pic.png" alt="user picture" />
+        <div>
+          <p class="name">Safa Taha</p>
+          <p class="secondary-text">Online</p>
+        </div>
+      </div>
+
+      <!-- Sidebar Controls: New Chat & Search -->
+      <div class="sidebar-actions">
+        <button id="newChatBtnMobile" class="new-chat-btn">
+          <span class="iconify" data-icon="eva:plus-outline" style="font-size: 18px;"></span>
+          <span>New Chat</span>
+        </button>
+        <div class="search-container">
+          <input type="text" id="searchHistoryMobile" placeholder="Search history..." class="search-input" />
+          <span class="iconify search-icon" data-icon="eva:search-outline"></span>
+        </div>
+      </div>
+
+      <!-- Calendar Strip -->
+      <div class="calendar-widget">
+        <p id="calendarMonth" class="calendar-month">June 2026</p>
+        <div class="calendar-days-grid">
+          <div class="cal-header-row">
+            <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+          </div>
+          <div id="calendarDatesRow" class="cal-dates-row">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container-max">
+      <!-- header -->
+      <header>
+        <div class="container">
+          <a href="./index.html" class="logo"
+            ><span class="red-text">Voice</span> Chatbot</a
+          >
+          <!-- displayed on small screen -->
+          <span id="open-menu" class="open-menu">
+            <span
+              class="iconify"
+              data-inline="false"
+              data-icon="jam:menu"
+              style="font-size: 30px"
+            ></span
+          ></span>
+          <!-- displayed on large screen -->
+          <div class="header-right">
+            <button id="langToggle" class="lang-btn">
+              <span class="iconify" data-icon="mdi:earth" style="font-size: 16px; vertical-align: text-bottom; margin-right: 4px;"></span>
+              <span id="langToggleText">AR</span>
+            </button>
+            <div class="theme-toggler-container">
+              <span
+                class="iconify sun-solid"
+                data-inline="false"
+                data-icon="clarity:sun-solid"
+                style="color: #3c3563; font-size: 22px"
+              ></span>
+              <span class="sun-outline">
+                <span
+                  class="iconify"
+                  data-inline="false"
+                  data-icon="octicon:sun-24"
+                  style="color: #ffffff; font-size: 22px"
+                ></span>
+              </span>
+              <span class="moon-outline">
+                <span
+                  class="iconify"
+                  data-inline="false"
+                  data-icon="eva:moon-outline"
+                  style="color: #3c3563; font-size: 22px"
+                ></span>
+              </span>
+              <span
+                class="iconify moon-solid"
+                data-inline="false"
+                data-icon="eva:moon-fill"
+                style="color: #ffffff; font-size: 22px"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- main -->
+      <main>
+        <!-- user sidebar panel (desktop) -->
+        <section class="user">
+          <div class="container">
+            <img src="./user-pic.png" alt="user picture" />
+            <p class="name">Safa Taha</p>
+            <p class="secondary-text">Online</p>
+
+            <!-- Sidebar Controls: New Chat & Search -->
+            <div class="sidebar-actions">
+              <button id="newChatBtnDesktop" class="new-chat-btn">
+                <span class="iconify" data-icon="eva:plus-outline" style="font-size: 18px;"></span>
+                <span>New Chat</span>
+              </button>
+              <div class="search-container">
+                <input type="text" id="searchHistoryDesktop" placeholder="Search history..." class="search-input" />
+                <span class="iconify search-icon" data-icon="eva:search-outline"></span>
+              </div>
+            </div>
+
+            <!-- Calendar Strip -->
+            <div class="calendar-widget">
+              <p id="calendarMonthDesktop" class="calendar-month">June 2026</p>
+              <div class="calendar-days-grid">
+                <div class="cal-header-row">
+                  <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                </div>
+                <div id="calendarDatesRowDesktop" class="cal-dates-row">
+                  <!-- Dynamically populated via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Main Chat Area -->
+        <div class="main-content-area">
+          <section class="Chat">
+            <div class="container">
+              <div class="chat-header-title">
+                <h1 id="appTitle">Voice Assistant</h1>
+                <p id="statusText" class="secondary-text">
+                  Tap the microphone and start speaking
+                </p>
+              </div>
+
+              <div class="inner-container chat-box">
+                <!-- Chat Message Logs -->
+                <div id="chatLog" class="chat-log">
+                  <div class="message bot">
+                    <p id="botWelcome">
+                      Hello! Tap the microphone button and talk to me 🎤
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Chat Controls -->
+                <div class="chat-input-controls">
+                  <button id="micBtn" class="mic-btn" title="Tap to talk">
+                    <span id="micIcon">🎤</span>
+                  </button>
+                  <p id="hintText" class="secondary-text hint">
+                    Works best on Chrome or Edge
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- iconify -->
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <!-- javascript -->
+    <script src="./main.js"></script>
+  </body>
+</html>

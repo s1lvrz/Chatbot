@@ -1,0 +1,91 @@
+// display flex
+@mixin flex($justify: flex-start, $align: flex-start, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+// headers
+@mixin header {
+  text-transform: uppercase;
+  font-size: 1.15em;
+  margin-bottom: 0.8em;
+}
+
+// rules for dark theme
+@mixin dark-theme {
+  body.dark & {
+    @content;
+  }
+}
+
+// navigation list
+@mixin nav-list {
+  list-style: none;
+
+  li {
+    // align icons & text
+    @include flex($align: center);
+    font-size: 0.9em;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+
+    &.active {
+      font-weight: 700;
+    }
+  }
+
+  svg {
+    // half svg's font-size
+    margin-right: 0.5em;
+  }
+}
+
+@mixin theme-toggler-container {
+  width: 85px;
+  height: 36px;
+  background-color: $light-background-body;
+  border-radius: 15px;
+  @include flex($justify: space-around, $align: center);
+
+  svg {
+    cursor: pointer;
+  }
+
+  // hide outlined sun/filled moon in light theme
+  .sun-outline,
+  .moon-solid {
+    display: none;
+  }
+
+  // flex to position the icon inside
+  .moon-outline {
+    display: flex;
+  }
+
+  @include dark-theme {
+    // on small screen inside the side nav
+    background-color: $dark-background-body;
+
+    // hide filled sun/outlined moon in dark theme
+    .sun-solid,
+    .moon-outline {
+      display: none;
+    }
+
+    // show outlined sun/filled moon in dark theme
+    .sun-outline,
+    .moon-solid {
+      // flex to position the icon inside .sun-outline
+      display: flex;
+    }
+  }
+}
+
+// media query
+@mixin media-query($minWidth) {
+  @media screen and (min-width: $minWidth) {
+    @content;
+  }
+}

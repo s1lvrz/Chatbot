@@ -1,0 +1,387 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+@import "variables";
+
+@import "mixins";
+
+body {
+  background-color: $light-background-body;
+  color: $light-text-main;
+  font-family: $font;
+  // to position sidenav
+  position: relative;
+  // to be pushed by sidenav
+  left: 0;
+  // no transition for color
+  transition: left $transition-duration, background-color $transition-duration;
+
+  // body.dark
+  &.dark {
+    color: $dark-text-main;
+    background-color: $dark-background-body;
+  }
+}
+
+// general container
+.container {
+  // relative to default font-size 16px
+  padding: 1em;
+}
+
+// max content width
+.container-max {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// content container
+.inner-container {
+  padding: 1em;
+  background-color: $light-background-container;
+  border-radius: 5px;
+  transition: background-color $transition-duration;
+
+  @include dark-theme {
+    background-color: $dark-background-container;
+  }
+}
+
+.secondary-text {
+  color: $light-text-secondary;
+
+  @include dark-theme {
+    color: $dark-text-secondary;
+  }
+}
+
+.orange-text {
+  color: $orange;
+}
+
+.blue-text {
+  color: $blue;
+}
+
+.green-text {
+  color: $green;
+}
+
+.red-text {
+  color: $red;
+}
+
+.side-nav {
+  height: 100%;
+  width: $sidenav-width;
+  position: fixed;
+  top: 0;
+  // hide nav
+  right: -$sidenav-width;
+  background-color: $light-background-container;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  // default font-size 16px
+  padding: 1em;
+  // transition: right $transition-duration, background-color $transition-duration;
+  transition: all $transition-duration;
+
+  @include dark-theme {
+    background-color: $dark-background-container;
+  }
+
+  .header {
+    @include flex($justify: space-between, $align: center);
+  }
+
+  .theme-toggler-container {
+    @include theme-toggler-container;
+  }
+
+  .close-menu {
+    cursor: pointer;
+  }
+
+  .user {
+    @include flex($justify: space-between, $align: center);
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+    img {
+      width: 66px;
+      height: 66px;
+    }
+
+    .name {
+      font-size: 1.2em;
+    }
+  }
+
+  .nav-list {
+    @include nav-list;
+  }
+}
+
+header {
+  .container {
+    @include flex($justify: space-between, $align: center);
+  }
+
+  .logo {
+    font-size: 1.1em;
+    // follow body's color
+    color: inherit;
+  }
+
+  .open-menu {
+    cursor: pointer;
+
+    // hide menu icon on large screen
+    @include media-query($breakpoint-2) {
+      display: none;
+    }
+  }
+
+  .theme-toggler-container {
+    @include theme-toggler-container;
+
+    // hide theme toggler on small screen
+    display: none;
+
+    @include media-query($breakpoint-2) {
+      display: flex;
+      /* background-color of toggler in sidenav
+       is different than in header */
+      background-color: $light-background-container;
+
+      @include dark-theme {
+        background-color: $dark-background-container;
+      }
+    }
+  }
+}
+
+section.user {
+  .container {
+    // $align controls horizontal alignment due to column direction
+    @include flex($direction: column, $align: center);
+  }
+
+  img {
+    border: 3px solid $orange;
+    border-radius: 50%;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+  }
+
+  .name {
+    font-size: 1.4em;
+  }
+
+  .secondary-text {
+    font-size: 0.9em;
+  }
+
+  .nav-list {
+    @include nav-list;
+    /* hide nav list beneath user info
+     on small screen */
+    display: none;
+
+    @include media-query($breakpoint-2) {
+      display: block;
+      margin-top: 3em;
+      // to not align at center
+      align-self: flex-start;
+    }
+  }
+}
+
+section.today-workout {
+  h1 {
+    @include header;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 1.125em;
+    border-bottom: 1px solid #f5f5fb;
+    padding-bottom: 0.7em;
+    transition: border-bottom-color $transition-duration;
+
+    @include dark-theme {
+      border-bottom-color: #424056;
+    }
+  }
+
+  .exercise {
+    padding: 1em 0 0.5em;
+
+    .secondary-text {
+      text-transform: uppercase;
+      font-size: 0.75em;
+      margin-bottom: 0.5em;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+section.workouts {
+  h1 {
+    @include header;
+  }
+
+  .inner-container {
+    position: relative;
+  }
+
+  .plus-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: $green;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 700;
+    border: 7px solid $light-background-body;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: -0.7em;
+    margin-right: -0.5em;
+    cursor: pointer;
+    transition: border-color $transition-duration;
+
+    @include dark-theme {
+      border-color: $dark-background-body;
+    }
+  }
+
+  p {
+    padding: 0.7em 0;
+  }
+}
+
+section.timer {
+  h1 {
+    @include header;
+  }
+
+  .num-exercises-container {
+    @include flex($align: center, $direction: column);
+  }
+
+  .num-exercises {
+    font-weight: 700;
+    font-size: 2em;
+    margin-top: 0.1em;
+  }
+
+  .timer-entry {
+    @include flex($justify: space-between);
+    padding: 0.7em 0;
+
+    .minus {
+      margin-right: 1em;
+    }
+
+    .plus {
+      margin-left: 1em;
+    }
+  }
+
+  .control-buttons {
+    @include flex($justify: center, $align: center);
+    margin-top: 0.7em;
+
+    svg {
+      // stop icon
+      &:first-child {
+        margin-right: 0.9em;
+      }
+
+      // play icon
+      &.play {
+        margin-right: 0.7em;
+      }
+    }
+  }
+}
+
+section.info {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.1em;
+  }
+
+  .info-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+  }
+
+  .num-unit-container {
+    @include flex($justify: space-between, $align: flex-end);
+  }
+
+  .num {
+    font-weight: 700;
+    font-size: 1.7em;
+  }
+
+  .unit {
+    font-size: 0.8em;
+  }
+}
+
+main {
+  // 650px & above
+  @include media-query($breakpoint-1) {
+    @include flex;
+    flex-wrap: wrap;
+
+    /*
+      layout
+       - user info expand full width
+       - next row is divided into two columns
+    */
+
+    section.user {
+      width: 100%;
+    }
+
+    .breakpoint-1-50 {
+      width: 50%;
+    }
+  }
+
+  @include media-query($breakpoint-2) {
+    // layout: three columns
+
+    section.user {
+      width: 20%;
+    }
+
+    .breakpoint-2-40 {
+      width: 40%;
+    }
+  }
+}
